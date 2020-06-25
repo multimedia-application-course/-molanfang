@@ -13,9 +13,9 @@
          （1）打开方式：在路径”dist\baidu\”下找到baidu.exe;双击之后即可运行；或者使用pycharm运行该项目，在baidu.py的文件中来run 程序也可以运行；  
          （2）运行：在文本地址中填写你要播放的文本的地址，（注：地址中的斜杠要改为反斜杠）；然后进行发音人的选择：选择你想要的发音人；点击“开始合成”来进行合成音频播放  
  ## 三、实现过程
- #### 1、利用百度的API将文字转化为语音，生成mp3格式的音频
- ###### 先定义好秘钥，进行初始化：
-def default_init():
+ #### 1、利用百度的API将文字转化为语音，生成mp3格式的音频  
+ 先定义好秘钥，进行初始化：  
+  def default_init():
     APP_ID = '20364232'
     API_KEY = 'USxm3n8TjtFLMIryxxPgszu0'
     SECRET_KEY = 'jwtn33XnxbL9vIlxrZ7EwoUdeGbzuEa9 '
@@ -25,7 +25,7 @@ def default_init():
     global file_add
     #    file_add = 'C:/Users/pooh/Desktop/1.txt'
         file_object = open(file_add)
- ###### 调用百度的API：
+ 调用百度的API：
   def start_t2a(spd=5, pit=5, vol=5, per=3):
     """
     :param spd: 合成语音的讲话速度
@@ -42,8 +42,8 @@ def default_init():
         file_object.close()
     result = aipSpeech.synthesis(n, 'zh', 1, {'spd': spd, 'pit': pit,  'vol': vol, 'per': per, })
         print(result)
-  #### 2、将mp3格式转化为wav格式的音频，这样就有两种音频格式
- ###### def starttool(mp3path, output, form="wav"):
+  #### 2、将mp3格式转化为wav格式的音频，这样就有两种音频格式  
+  def starttool(mp3path, output, form="wav"):
     if os.path.exists("ffmpeg.exe") and os.path.exists(
             "ffplay.exe") and os.path.exists("ffprobe.exe"):
         try:
@@ -64,7 +64,7 @@ def default_init():
                 print("mp3目标文件不存在!")
         trans_mp3_to_wav(mp3path)
    #### 3、制作GUI的界面方便运行程序
-  ###### root = Tk()
+    root = Tk()
     root.title("文字语音合成")
     # root.geometry("600x300")  # 设置框的大小
     '''
